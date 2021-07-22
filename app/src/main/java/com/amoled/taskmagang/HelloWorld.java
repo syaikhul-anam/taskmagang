@@ -27,7 +27,7 @@ public class HelloWorld extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (et_input.length()==0){
-                    tv_result.setError("Enter Value");
+                    et_input.setError("Enter Value");
                     Toast.makeText(getApplicationContext(),"Kolom tidak boleh kosong",Toast.LENGTH_SHORT).show();
                 }
                 else {
