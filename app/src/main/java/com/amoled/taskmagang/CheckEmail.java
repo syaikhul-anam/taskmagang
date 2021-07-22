@@ -9,7 +9,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.regex.Pattern;
+
 public class CheckEmail extends AppCompatActivity {
+    private static final Pattern EMAIL_PATTERN =
+            Pattern.compile("^" +
+                            "[a-z0-9\\+\\.\\_\\%\\-\\+]{1,20}" +
+                            "\\@" +
+                            "[a-z0-9]{1,10}" +
+                            "\\." +
+                            "[?:!id|!co\\.id]{1,5}");
     EditText email;
     Button btn_cek;
     @Override
@@ -33,7 +42,7 @@ public class CheckEmail extends AppCompatActivity {
         if (input.isEmpty()) {
             email.setError("Kolom tidak boleh kosong");
             return false;
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(input).matches()) {
+        } else if (!EMAIL_PATTERN.matcher(input).matches()) {
             email.setError("Format email salah");
             Toast.makeText(CheckEmail.this, "Format email salah", Toast.LENGTH_SHORT).show();
             return false;
