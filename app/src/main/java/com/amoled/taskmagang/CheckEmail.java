@@ -40,7 +40,8 @@ public class CheckEmail extends AppCompatActivity {
     private boolean validateEmail(EditText toString) {
         String input = email.getText().toString();
         if (input.isEmpty()) {
-            email.setError("Kolom tidak boleh kosong");
+            email.setError("Error");
+            Toast.makeText(getApplicationContext(),"Kolom tidak boleh kosong!",Toast.LENGTH_SHORT).show();
             return false;
         } else if (!EMAIL_PATTERN.matcher(input).matches()) {
             email.setError("Format email salah");

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CheckPolindrome extends AppCompatActivity {
 
@@ -31,8 +32,10 @@ public class CheckPolindrome extends AppCompatActivity {
                     char c = input.charAt(i);
                     temp += String.valueOf(c);
                 }
-
-                if (input.toLowerCase().equals(temp.toLowerCase())){
+                if (input.isEmpty()){
+                    et_input.setError("Error");
+                    Toast.makeText(getApplicationContext(),"Kolom tidak boleh kosong!",Toast.LENGTH_SHORT).show();
+                }else if (input.toLowerCase().equals(temp.toLowerCase())){
                     tv_result.setText("Text adalah polindrome");
                 }else {
                     tv_result.setText("Text bukan polindrome");
